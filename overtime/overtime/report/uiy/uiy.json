@@ -1,0 +1,30 @@
+{
+ "add_total_row": 1, 
+ "apply_user_permissions": 1, 
+ "creation": "2018-01-24 11:14:51.082027", 
+ "disabled": 0, 
+ "docstatus": 0, 
+ "doctype": "Report", 
+ "idx": 0, 
+ "is_standard": "Yes", 
+ "modified": "2018-01-24 11:18:55.777346", 
+ "modified_by": "Administrator", 
+ "module": "Overtime", 
+ "name": "uiy", 
+ "owner": "Administrator", 
+ "query": "select overtime_in_hours,ot_amount from tabAttendance Custom", 
+ "ref_doctype": "Attendance", 
+ "report_name": "uiy", 
+ "report_type": "Query Report", 
+ "roles": [
+  {
+   "role": "System Manager"
+  }, 
+  {
+   "role": "HR User"
+  }, 
+  {
+   "role": "HR Manager"
+  }
+ ]
+}
