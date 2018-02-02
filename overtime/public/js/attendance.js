@@ -1,48 +1,11 @@
-var calculate_ot_amount = function(frm, cdt, cdn){
-	var child = locals[cdt][cdn];
-	var ot_amount = 0.0;
-	
-	
-	
 
-	if(child.overtime_in_hours &&  child.ot_rate){
-		ot_amount = (child.overtime_in_hours * child.ot_rate);
-		
-	}
+cur_frm.cscript.custom_refresh = function(doc) {
 	
-	frappe.model.set_value(cdt, cdn, 'ot_amount',ot_amount);
-	
-
+    // use the __islocal value of doc, to check if the doc is saved or not
+    cur_frm.set_df_property("overtime_in_hours", "read_only", doc.__islocal ? 0 : 1);
+	cur_frm.set_df_property("ot_amount", "read_only", doc.__islocal ? 0 : 1);
 }
-
-
-var calculate_ot_hours = function(frm, cdt, cdn){
-	var child = locals[cdt][cdn];
-	var ot_hours = 0.0;
 	
-	ot_hours = (child.overtime_in_minutes/60);
-	 
-	
-	frappe.model.set_value(cdt, cdn, 'overtime_in_hours',ot_hours);
-	
-
-}
 
 
 
-frappe.ui.form.on("Attendance", {
-	refresh: function(frm, cdt, cdn) {
-		calculate_ot_hours(frm, cdt, cdn)
-		calculate_ot_amount(frm, cdt, cdn)
-	
-	},
-overtime_in_minutes: function(frm, cdt, cdn) {
-		calculate_ot_hours(frm, cdt, cdn)
-	
-	},
-
-	
-	
-
-	
-});

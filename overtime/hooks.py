@@ -81,13 +81,15 @@ doctype_js = {"Attendance" : "public/js/attendance.js"}
 # ---------------
 # Hook on document methods and events
 
-#doc_events = {
-#	"Attendance": {
-	#	"on_submit": ["overtime.overtime.attendance_custom.calculate_ot_hr",
-		#	"overtime.overtime.attendance_custom.calculate_ot_amount"]
+doc_events = {
+	"Attendance": {
+		"validate": ["overtime.overtime.attendance_custom.calculate_ot_hrs",
+		"overtime.overtime.attendance_custom.calculate_ot_amount"]
 		
-#	}
-#}
+		
+	}
+}
+
 
 # Scheduled Tasks
 # ---------------
